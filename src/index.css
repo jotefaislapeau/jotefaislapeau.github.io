@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%; /* Very Dark Blue/Black */
+    --foreground: 40 50% 90%; /* Light Gold/Cream for text */
+    --card: 240 8% 8%; /* Slightly Lighter Dark Blue/Black */
+    --card-foreground: 40 50% 90%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 40 50% 90%;
+    --primary: 45 100% 50%; /* Bright Gold */
+    --primary-foreground: 240 10% 10%; /* Dark for contrast on gold */
+    --secondary: 40 80% 65%; /* Softer Gold */
+    --secondary-foreground: 240 10% 10%;
+    --muted: 240 5% 15%; /* Dark Gray */
+    --muted-foreground: 40 30% 70%; /* Lighter Gray/Gold */
+    --accent: 50 100% 60%; /* Richer Gold */
+    --accent-foreground: 240 10% 10%;
+    --destructive: 30 80% 50%; /* Deep Orange/Gold */
+    --destructive-foreground: 40 50% 90%;
+    --border: 45 70% 40%; /* Darker Gold Border */
+    --input: 240 5% 12%; /* Dark Gray for inputs */
+    --ring: 45 100% 55%; /* Gold for focus rings */
+    --radius: 0.75rem; 
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif; 
+  }
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 70%, hsl(var(--secondary)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg-gold {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  color: hsl(var(--primary-foreground));
+  border: 1px solid hsl(var(--primary) / 0.5);
+}
+
+.glass-effect-gold {
+  background: rgba(10, 10, 10, 0.3); /* Darker translucent base for gold theme */
+  backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid hsl(var(--border) / 0.3);
+  box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.2);
+}
+
+.floating-animation {
+  animation: float-gold 8s ease-in-out infinite;
+}
+
+@keyframes float-gold {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.text-glow-gold-strong {
+  text-shadow: 0 0 15px hsla(var(--primary), 0.7), 0 0 25px hsla(var(--primary), 0.5);
+}
+.text-glow-gold-soft {
+   text-shadow: 0 0 8px hsla(var(--primary), 0.4);
+}
+
+.glow-effect-gold {
+  box-shadow: 0 0 20px hsla(var(--primary), 0.5), 0 0 30px hsla(var(--primary), 0.3);
+}
+.glow-effect-gold-soft {
+  box-shadow: 0 0 15px hsla(var(--primary), 0.3);
+}
+
+
+.particle-bg-gold {
+  background-image: 
+    radial-gradient(circle at 25% 75%, hsla(var(--primary), 0.12) 0%, transparent 30%),
+    radial-gradient(circle at 75% 25%, hsla(var(--secondary), 0.08) 0%, transparent 30%);
+  background-size: 250px 250px; /* Larger, more subtle particles */
+  animation: particles-gold 35s linear infinite;
+}
+
+@keyframes particles-gold {
+  0% {
+    background-position: 0% 0%, 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%, -200% -200%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background) / 0.8); 
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.6);
+  border-radius: 10px;
+  border: 1px solid hsl(var(--border) / 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.8);
+}
